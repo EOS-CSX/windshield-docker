@@ -1,0 +1,12 @@
+version: "3.3"
+
+services:
+  server:
+    build:
+      context: docker/server/.
+      args: 
+        - SERVERNAME=www.example.com
+    ports:
+      - 80:80
+      - 4000:4000
+

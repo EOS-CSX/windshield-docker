@@ -1,0 +1,19 @@
+
+<VirtualHost *:80>
+        #ServerName www.example.com  # here you will use the host you setup on config.exs of the backend
+
+        ServerAdmin webmaster@localhost
+        DocumentRoot /var/www/html
+
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+	Include conf-available/serve-cgi-bin.conf
+        RewriteEngine On
+        RewriteCond %{HTTP:Connection} Upgrade [NC]
+        RewriteCond %{HTTP:Upgrade} websocket [NC]
+        RewriteRule /ws/(.*) ws://localhost:4001/$1 [P,L]
+
+        ProxyPass /api http://localhost:4001/api
+        ProxyPassReverse /api http://localhost:4001/api
+</VirtualHost>

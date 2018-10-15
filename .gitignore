@@ -24,3 +24,14 @@ Thumbs.db
 
 my-deploy.sh
 deploy.sh
+
+
+###############
+## CSX Community educatedwarrior
+###############
+apache-config.conf
+prod.secret.exs
+docker-compose.yml
+index.html
+junk/
+
