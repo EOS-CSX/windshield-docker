@@ -78,7 +78,7 @@ RUN \
 
 
 WORKDIR /var/www/html/frontend
-RUN sed -i -e "s/localhost/$SERVERNAME/g" ./public/index.html
+RUN sed -i -e "s/localhost:4000/${SERVERNAME}:4001/g" ./public/index.html
 ADD elm.json .
 RUN mkdir /root/.elm-install
 RUN npm install -g elm@0.18.0 
